@@ -1,0 +1,241 @@
+$dark-grey: #616161;
+$medium-text: 22px;
+$small-text: 16px;
+
+@mixin page-container-style() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    overflow: auto;
+}
+
+@mixin button-style() {
+    width: 140px;
+    padding: 10px 0;
+    font-size: $small-text;
+    font-weight: 600;
+    color: black;
+    border-radius: 3px;
+    border: 3px solid #000000;
+    margin: 0 10px;
+    background-color: #FFFFFF;
+}
+
+.app {
+    &__img {
+        display: none;
+    }
+}
+
+.loading-page {
+    @include page-container-style();
+
+    justify-content: center;
+
+    &__title {
+        margin: 0;
+        font-size: 50px;
+        font-weight: 500;
+    }
+
+    &__img {
+        max-width: 70%;
+    }
+    
+    &__spinner {
+        position: fixed;
+        left: 50.4%;
+        top: 50.6%;
+        transform: translate(-50%, -50%);
+
+        @media (max-width: 300px) {
+            display: none;
+          }
+    }
+
+    &__loading-text {
+        margin: 0;
+        font-size: $medium-text;
+        font-weight: 400;
+        color: $dark-grey;
+    }
+
+    &__video {
+        display: none;
+    }
+
+    &__app-info {
+        position: absolute;
+        bottom: 10px;
+        font-size: $small-text;
+        font-weight: 200;
+        color: $dark-grey;
+    }
+}
+
+.predicting-page {
+    @include page-container-style();
+
+    &__title {
+        margin: 40px 0 10px 0;
+        font-size: $medium-text;
+    }
+    
+    &__description {
+        font-size: $small-text;
+    }
+
+    &__video {
+        height: auto;
+        max-width: 80%;
+        max-height: 350px;
+        border: 3px solid $dark-grey;
+    } 
+
+    &__img {
+        height: auto;
+        max-width: 80%;
+        max-height: 350px;
+        border: 3px solid $dark-grey;
+    }
+
+    &__recognized-blink-title {
+        color: $dark-grey;
+        font-size: $medium-text;
+        margin-bottom: 5px;
+    }
+
+    &__recognized-blink-container {
+        width: 80%;
+        min-height: 45px;
+        border: 3px solid $dark-grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__recognized-blink-sequence {
+        margin: 5px;
+        font-size: $medium-text;
+        font-weight: 900;
+    }
+
+    &__recognized-text-title {
+        color: $dark-grey;
+        font-size: $medium-text;
+        margin-bottom: 5px;
+    }
+
+    &__recognized-text-container {
+        width: 80%;
+        min-height: 45px;
+        border: 3px solid $dark-grey;
+    }
+
+    &__recognized-text-p {
+        margin: 7px;
+        font-size: $medium-text;
+        font-weight: 600;
+    }
+
+    &__btns-container {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        margin: 30px 0;
+    }
+
+    &__start-capturing-btn {
+        @include button-style();
+        background-color: #000000;
+        color: #FFFFFF;
+
+        &:active {
+            transform: scale(0.99);
+            transition: 0.1s
+        }
+    }
+
+    &__stop-capturing-btn {
+        @include button-style();
+        background-color: $dark-grey;
+        border-color: $dark-grey;
+        color: #FFFFFF;
+        animation: pulse 1s infinite;
+
+        &:active {
+            transform: scale(0.99);
+            transition: 0.1s
+        }
+    }   
+
+    &__remove-letter-btn {
+        @include button-style();
+
+        &:active {
+            transform: scale(0.99);
+            transition: 0.1s
+        }
+    }
+
+}
+
+.morse-code-page {
+    @include page-container-style();
+
+    &__title {
+        margin: 40px 0 10px 0;
+        font-size: $medium-text;
+    }
+    
+    &__description {
+        font-size: $small-text;
+        max-width: 80%;
+    }
+
+    &__img {
+        height: auto;
+        max-width: 90%;
+        max-height: 350px;
+        border: 3px solid $dark-grey;
+    }
+
+    &__how-title {
+        margin: 40px 0 10px 0;
+        font-size: $medium-text;
+
+    }
+    
+    &__how-description {
+        font-size: $small-text;
+        max-width: 80%;
+    }
+
+    &__btn {
+        @include button-style();
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px 0;
+
+        &:active {
+            transform: scale(1.03);
+            transition: 0.2s
+        }
+    }
+
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+  }
+	50% {
+		transform: scale(1.03);
+	}
+  100% {
+		transform: scale(1);
+	}
+}

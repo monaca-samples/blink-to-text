@@ -1,0 +1,14 @@
+{
+    "ios": {
+        "debug": {
+            "buildFlag": [
+                "-quiet"
+            ]
+        },
+        "release": {
+            "buildFlag": [
+                "-quiet"
+            ]
+        }
+    }
+}
